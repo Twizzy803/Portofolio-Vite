@@ -49,3 +49,37 @@ export function AnimasiKanan({ children }) {
     </motion.div>
   );
 }
+
+export function AnimasiText({ text, className }) {
+  const sentence = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        staggerChildren: 0.04,
+      },
+    },
+  };
+  const letter = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  return (
+    <motion.h1
+      className={
+        "text-5xl font-bold mb-4 bg-[var(--color-tertinary)] p-4 text-[var(--color-primary)] rounded-lg"
+      }
+      variants={sentence}
+      initial="hidden"
+      animate="visible"
+    >
+      {text.split("").map((char, index) => (
+        <motion.span key={char + "-" + index} variants={letter}>
+          {char}
+        </motion.span>
+      ))}
+    </motion.h1>
+  );
+}

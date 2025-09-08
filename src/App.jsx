@@ -11,6 +11,7 @@ import {
   AnimasiScroll,
   AnimasiKiri,
   AnimasiKanan,
+  AnimasiText,
 } from "./components/Animasi";
 
 function App() {
@@ -30,7 +31,12 @@ function App() {
                   <span className="text-[var(--color-tertinary)]">Saya</span>
                 </h2>
               </AnimasiKiri>
-              <AnimasiNama text="Agil Gilang C.S" />
+              <AnimasiText
+                text="Agil Gilang C.S"
+                className={
+                  "text-5xl font-bold mb-4 bg-[var(--color-tertinary)] p-4 text-[var(--color-primary)] rounded-lg"
+                }
+              />
               <AnimasiKiri>
                 <p className="text-lg mb-4">
                   Saya adalah seorang pengembang web dan mobile yang
@@ -39,9 +45,23 @@ function App() {
 
                 <a
                   href="#proyek"
-                  className="bg-[var(--color-tertinary)] hover:bg-[var(--color-tertinary)]/50 text-[var(--color-primary)] font-bold py-2 px-4 rounded hover:text-white"
+                  className="group relative inline-block px-8 py-4 font-bold text-white transition-colors duration-300"
                 >
-                  Lihat Proyek Saya
+                  {/* Lapisan Latar Belakang */}
+                  <span className="absolute inset-0 bg-[var(--color-tertinary)] transition-colors duration-300 group-hover:bg-[var(--color-primary)]/80 rounded-lg"></span>
+
+                  {/* Teks Tombol (di atas lapisan latar belakang) */}
+                  <span className="relative z-10 text-[var(--color-primary)] group-hover:text-white transition-colors duration-300">
+                    Donwload CV
+                  </span>
+
+                  {/* --- INI BAGIAN AJAIBNYA: SUDUT-SUDUT BINGKAI --- */}
+
+                  {/* Sudut Kiri Atas */}
+                  <span className="absolute left-0 top-0 h-0 w-0 border-t-2 border-l-2 border-tertiary transition-all duration-300 group-hover:h-full group-hover:w-full rounded-tl-lg"></span>
+
+                  {/* Sudut Kanan Bawah */}
+                  <span className="absolute right-0 bottom-0 h-0 w-0 border-b-2 border-r-2 border-tertiary transition-all duration-300 group-hover:h-full group-hover:w-full rounded-br-lg"></span>
                 </a>
               </AnimasiKiri>
             </div>
@@ -97,13 +117,17 @@ function App() {
 
         {/* Section Proyek */}
         <section id="proyek" className="bg-white py-20">
-          <div className="flex flex-col items-center justify-start h-screen text-gray-900 bg-white">
-            <h2 className="text-4xl font-semibold mb-4 mt-xl mt-25">Proyek</h2>
-            <hr className="w-1/4 mb-4 border-t-4 border-[var(--color-tertinary)]" />
-            <div className="w-full" id="project-grid-container">
-              <ProjectGrid />
+          <AnimasiScroll>
+            <div className="flex flex-col items-center justify-start h-screen text-gray-900 bg-white">
+              <h2 className="text-4xl font-semibold mb-4 mt-xl mt-25">
+                Proyek
+              </h2>
+              <hr className="w-1/4 mb-4 border-t-4 border-[var(--color-tertinary)]" />
+              <div className="w-full" id="project-grid-container">
+                <ProjectGrid />
+              </div>
             </div>
-          </div>
+          </AnimasiScroll>
         </section>
 
         {/* Section Kontak */}
