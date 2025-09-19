@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,37 +9,14 @@
   --color-secondary: #5c636e;
   --color-tertinary: #f8b400;
   --color-quaternary: #f7f7f7;
-}
-
-@layer components {
-  .custom-color-primary {
-    color: var(--color-primary);
-  }
-  .custom-color-secondary {
-    color: var(--color-secondary);
-  }
-  .custom-color-tertinary {
-    color: var(--color-tertinary);
-  }
-  .custom-color-quarrternary {
-    color: var(--color-quaternary);
-  }
-  /* background-color */
-  .custom-bg-primary {
-    background-color: var(--color-primary);
-  }
-  .custom-bg-secondary {
-    background-color: var(--color-secondary);
-  }
-  .custom-bg-tertinary {
-    background-color: var(--color-tertinary);
-  }
-  .custom-bg-quarrternary {
-    background-color: var(--color-quaternary);
-  }
+  --font-rubik: "Rubik", sans-serif;
+  --font-kode: "Kode Mono", monospace;
 }
 html {
   scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-rubik);
 }
 
 .nav-link {
@@ -58,7 +36,9 @@ html {
   transform-origin: center;
   transition: transform 0.3s ease-out;
 }
-
+.nav-active {
+  color: var(--color-tertinary);
+}
 .nav-link:hover::after,
 .nav-active::after {
   transform: scaleX(1);

@@ -16,6 +16,10 @@ export default {
         "custom-primary": "#FF5733", // Contoh: Warna oranye terang
         "custom-secondary": "#C70039", // Contoh: Warna merah tua
       },
+      fontFamily: {
+        rubik: ["Rubik", "sans-serif"],
+        kode: ['"Kode Mono"', "monospace"],
+      },
     },
   },
 
