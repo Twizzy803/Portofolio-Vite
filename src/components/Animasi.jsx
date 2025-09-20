@@ -20,7 +20,7 @@ export function AnimasiScroll({ children, className }) {
       className={className}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }} // Ganti 'animate' menjadi 'whileInView'
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 1 }}
       viewport={{ once: true }} // Animasi hanya berjalan sekali
     >
       {children}

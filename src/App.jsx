@@ -1,7 +1,3 @@
-// src/App.jsx
-
-import Navbar from "./components/Navbar";
-
 // Langkah 1: Import gambar Anda di bagian atas file
 import coverImage1 from "./assets/images/img1.jpg";
 import coverImage2 from "./assets/images/img2.jpg";
@@ -10,8 +6,14 @@ import LaravelLogo from "./assets/icons/laravel.svg";
 import FlutterLogo from "./assets/icons/flutter.svg";
 import TailwindLogo from "./assets/icons/tailwind.svg";
 import ViteLogo from "./assets/icons/vite.svg";
-import ProjectGrid from "./components/ProjectGrid";
+import FigmaLogo from "./assets/icons/figma.svg";
+import instagramLogo from "./assets/icons/instagram.svg";
+import githubLogo from "./assets/icons/github.svg";
+import linkedinLogo from "./assets/icons/linkedin.svg";
+import EmailLogo from "./assets/icons/email.svg";
+import WhatsappLogo from "./assets/icons/whatsapp.svg";
 
+// Animasi
 import {
   AnimasiNama,
   AnimasiScroll,
@@ -20,8 +22,14 @@ import {
   AnimasiText,
   PixelatedImage,
 } from "./components/Animasi";
+
+// Ccomponen Items
+import Navbar from "./components/Navbar";
+import ProjectGrid from "./components/ProjectGrid";
 import { FloatingIcon } from "./components/FlotingIcon";
 import { LiveClock } from "./components/LiveClock";
+import SkillIcon from "./components/SkillIcon";
+import { i } from "motion/react-client";
 
 function App() {
   return (
@@ -48,7 +56,7 @@ function App() {
           <FloatingIcon
             src={ViteLogo}
             alt="Vite Logo"
-            className="bottom-[25%] left-[20%]"
+            className="bottom-[22%] left-[20%]"
           />
           <FloatingIcon
             src={FlutterLogo}
@@ -146,10 +154,16 @@ function App() {
                   meningkatkan keterampilan serta memberikan hasil kerja yang
                   lebih baik ke depannya.
                 </p>
-                <div>
-                  <h2 className="text-4xl mb-4">
-                    Kemampuan <span className="font-bold">Saya</span>
-                  </h2>
+                <h2 className="text-4xl mb-4">
+                  Kemampuan <span className="font-bold">Saya</span>
+                </h2>
+                <div className="grid grid-col grid-cols-3 justify-center">
+                  <SkillIcon src={ReactLogo} alt="React" />
+                  <SkillIcon src={LaravelLogo} alt="Laravel" />
+                  <SkillIcon src={FlutterLogo} alt="Flutter" />
+                  <SkillIcon src={TailwindLogo} alt="Tailwind" />
+                  <SkillIcon src={ViteLogo} alt="Vite" />
+                  <SkillIcon src={FigmaLogo} alt="figma" />
                 </div>
               </div>
             </AnimasiScroll>
@@ -174,56 +188,45 @@ function App() {
         </section>
 
         {/* Section Kontak */}
-        <section id="kontak" className="bg-[var(--color-primary)] py-20">
-          <footer>
-            <div className="flex flex-col items-center justify-start h-screen text-white">
-              <h2 className="text-9xl font-semibold mb-4 mt-50 text-[var(--color-primary)] text-shadow-lg text-shadow-[var(--color-tertinary)] bg-[var(--color-tertinary)] px-5 rounded-lg">
-                Kon
-                {/* <span className="bg-[var(--color-tertinary)] px-5 rounded-lg"> */}
-                tak
-                {/* </span> */}
+        <section id="kontak" className="bg-[var(--color-primary)]">
+          <AnimasiScroll>
+            <div className="flex flex-col items-center justify-start text-white">
+              <h2 className="text-4xl font-semibold mb-4 mt-15 text-[var(--color-quaternary)] px-5">
+                Kontak
               </h2>
-              <hr className="w-1/3 mb-4 border-t-4 border-[var(--color-tertinary)]" />
-              <div className="grid grid-cols-2 gap-4 items-center mt-10 text-xl space-x-10 place-content-around">
+              <p>Makasih udah mampir, semoga harimu seru terus.</p>
+              <div className="flex items-center space-x-4 mb-15">
                 {/* Langkah 3: Ubah event handler 'onclick' menjadi 'onClick' */}
-                <button
-                  onClick={() =>
-                    window.open("https://wa.me/6287861801695", "_blank")
-                  }
-                  className="bg-[var(--color-primary)] text-[var(--color-secondary)] font-bold py-4 px-4 rounded-full hover:text-white hover:bg-[var(--color-secondary)] shadow-lg shadow-[var(--color-secondary)] hover:shadow-none w-100"
-                >
-                  <i className="fa-brands fa-whatsapp"></i> Whatsapp
-                </button>
-                <button className="bg-[var(--color-primary)] text-[var(--color-secondary)] font-bold py-4 px-4 rounded-full hover:text-white hover:bg-[var(--color-secondary)] shadow-lg shadow-[var(--color-secondary)] hover:shadow-none w-100">
-                  <i className="fa-regular fa-envelope"></i> Email
-                </button>
-                <button
-                  onClick={() =>
-                    window.open("https://github.com/Twizzy803", "_blank")
-                  }
-                  className="bg-[var(--color-primary)] text-[var(--color-secondary)] font-bold py-4 px-4 rounded-full hover:text-white hover:bg-[var(--color-secondary)] shadow-lg shadow-[var(--color-secondary)] hover:shadow-none w-100"
-                >
-                  <i className="fa-brands fa-github"></i> Github
-                </button>
-                <button
-                  onClick={() =>
-                    window.open(
-                      "https://www.linkedin.com/in/agilgilangcs/",
-                      "_blank"
-                    )
-                  }
-                  className="bg-[var(--color-primary)] text-[var(--color-secondary)] font-bold py-4 px-4 rounded-full hover:text-white hover:bg-[var(--color-secondary)] shadow-lg shadow-[var(--color-secondary)] hover:shadow-none w-100"
-                >
-                  <i className="fa-brands fa-linkedin"></i> LinkedIn
-                </button>
+                <a href="https://www.instagram.com/chandra_saputra02/">
+                  <img src={instagramLogo} alt="" className="w-10" />
+                </a>
+                <a href="https://github.com/Twizzy803">
+                  <img src={githubLogo} alt="" className="w-13" />
+                </a>
+                <a href="https://www.linkedin.com/in/agilgilangcs/">
+                  <img src={linkedinLogo} alt="" className="w-10" />
+                </a>
+                <a href="mailto:agilgilangcs@gmail.com?subject=Pertanyaan%20dari%20Website%20Portofolio">
+                  <img src={EmailLogo} alt="" className="w-12" />
+                </a>
               </div>
             </div>
+          </AnimasiScroll>
+        </section>
+
+        {/* Footer */}
+        <section className="bg-[var(--color-secondary)] py-2">
+          <footer>
+            <div className="text-center text-white">
+              <p className="text-md">
+                © 2025{" "}
+                <span className="font-bold text-[var(--color-tertinary)]">
+                  Twizzy
+                </span>{" "}
+                All Rights Reserved.Inc
+              </p>
+            </div>
           </footer>
-          <div className="mt-10 text-center text-white">
-            <p className="text-lg">
-              Author: <span className="font-bold">Twizzy</span>
-            </p>
-          </div>
         </section>
       </main>
     </>

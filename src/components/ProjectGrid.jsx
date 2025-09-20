@@ -3,6 +3,7 @@ import ProjectCard from "./ProjectCard";
 import AfterGuilty from "../assets/images/afterguilty.jpg";
 import BlackWooden from "../assets/images/blackwooden.jpg";
 import Indomas from "../assets/images/indomas.jpg";
+import AgriIn from "../assets/images/agriin.jpg";
 
 // Ini adalah data proyek kita. Anda bisa mengambil ini dari database Laravel nanti.
 const projects = [
@@ -26,6 +27,13 @@ const projects = [
     title: "INDOMAS",
     description: "Website legal comunity",
     projectUrl: "https://github.com/Twizzy803/INDOMAS-BAKESBANGPOL.git",
+  },
+  {
+    id: 4,
+    imageUrl: AgriIn,
+    title: "AgriIn",
+    description: "Mobile Diagnosis Plant Disease",
+    projectUrl: "https://github.com/Twizzy803/AgriIn-MobileFlutter.git",
   },
 ];
 
