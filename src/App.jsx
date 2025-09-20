@@ -12,6 +12,7 @@ import githubLogo from "./assets/icons/github.svg";
 import linkedinLogo from "./assets/icons/linkedin.svg";
 import EmailLogo from "./assets/icons/email.svg";
 import WhatsappLogo from "./assets/icons/whatsapp.svg";
+import CVSaya from "./assets/files/CV.pdf";
 
 // Animasi
 import {
@@ -90,7 +91,8 @@ function App() {
                   bersemangat.
                 </p>{" "}
                 <a
-                  href="#proyek"
+                  href={CVSaya}
+                  download="CV_AgilGilangCS.pdf"
                   className="group relative inline-block px-8 py-4 font-bold text-white transition-colors duration-300"
                 >
                   {/* Lapisan Latar Belakang */}
