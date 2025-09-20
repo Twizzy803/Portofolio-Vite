@@ -15,6 +15,11 @@
 html {
   scroll-behavior: smooth;
 }
+body,
+a,
+button {
+  cursor: none;
+}
 body {
   font-family: var(--font-rubik);
 }

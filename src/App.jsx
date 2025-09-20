@@ -30,13 +30,13 @@ import ProjectGrid from "./components/ProjectGrid";
 import { FloatingIcon } from "./components/FlotingIcon";
 import { LiveClock } from "./components/LiveClock";
 import SkillIcon from "./components/SkillIcon";
-import { i } from "motion/react-client";
+import Cursor from "./components/Cursor";
 
 function App() {
   return (
     <>
-      {" "}
-      {/* Menggunakan Fragment <>...</> untuk membungkus semuanya */}
+      <Cursor />
+
       <Navbar />
       <main>
         {/* Section Beranda */}
