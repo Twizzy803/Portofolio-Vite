@@ -78,7 +78,7 @@ export default function MotionCursor() {
   return (
     <motion.div
       // Styling dasar untuk kursor
-      className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] opacity-0 md:opacity-100" // z-index sangat tinggi
+      className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] opacity-0 md:opacity-0 lg:opacity-100" // z-index sangat tinggi
       // Gunakan nilai spring untuk posisi, bukan nilai mouse langsung
       style={{
         translateX: springX,
