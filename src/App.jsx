@@ -52,7 +52,7 @@ function App() {
           <FloatingIcon
             src={LaravelLogo}
             alt="Laravel Logo"
-            className="top-[20%] right-[15%] w-20 h-20"
+            className="md:top-[20%] right-[15%] top-[25%]"
           />
           <FloatingIcon
             src={ViteLogo}
@@ -67,14 +67,14 @@ function App() {
           <FloatingIcon
             src={TailwindLogo}
             alt="JavaScript Logo"
-            className="top-[50%] left-[40%]"
+            className="top-[50%] md:left-[40%] left-[60%]"
           />
-          <LiveClock className="font-marker text-8xl md:text-9xl text-white select-none top-[30%] left-[25%] font-[family-name:var(--font-kode)]" />
+          <LiveClock className="hidden md:block font-marker text-4xl md:text-9xl text-white select-none md:top-[20%] md:left-[25%] font-[family-name:var(--font-kode)]" />
 
-          <div className="flex flex-row w-full h-screen items-center">
-            <div className="flex flex-col h-screen w-1/2 text-white justify-end items-end p-10">
+          <div className="flex flex-col w-full h-screen items-center md:flex-row">
+            <div className="flex flex-col h-screen md:w-1/2 text-white md:justify-center md:items-end md:p-10 justify-center items-center">
               <AnimasiKiri>
-                <h2 className="text-4xl font-semibold mb-4">
+                <h2 className="text-md font-semibold mb-2 md:text-4xl">
                   Selamat Datang di Portofolio ,
                   <span className="text-[var(--color-tertinary)]">Saya</span>
                 </h2>
@@ -82,40 +82,26 @@ function App() {
               <AnimasiText
                 text="Agil Gilang C.S"
                 className={
-                  "text-5xl font-bold mb-4 bg-[var(--color-tertinary)] p-4 text-[var(--color-primary)] rounded-lg"
+                  "md:text-5xl text-md font-bold mb-4 bg-[var(--color-tertinary)] p-4 text-[var(--color-primary)] rounded-lg"
                 }
               />
               <AnimasiKiri>
-                <p className="text-lg mb-4">
+                <p className="md:text-lg text-sm mb-4 text-center">
                   Saya adalah seorang pengembang web dan mobile yang
                   bersemangat.
                 </p>{" "}
                 <a
                   href={CVSaya}
                   download="CV_AgilGilangCS.pdf"
-                  className="group relative inline-block px-8 py-4 font-bold text-white transition-colors duration-300"
+                  className="group flex justify-center mx-30 text-sm bg-[var(--color-tertinary)] hover:bg-[var(--color-primary)] hover:outline-2 md:px-8 md:py-4 px-3 py-3 font-bold text-white transition-colors duration-300 rounded-lg"
                 >
-                  {/* Lapisan Latar Belakang */}
-                  <span className="absolute inset-0 bg-[var(--color-tertinary)] transition-colors duration-300 group-hover:bg-[var(--color-primary)]/80 rounded-lg"></span>
-
-                  {/* Teks Tombol (di atas lapisan latar belakang) */}
-                  <span className="relative z-1 text-[var(--color-primary)] group-hover:text-white transition-colors duration-300">
-                    Donwload CV
-                  </span>
-
-                  {/* --- INI BAGIAN AJAIBNYA: SUDUT-SUDUT BINGKAI --- */}
-
-                  {/* Sudut Kiri Atas */}
-                  <span className="absolute left-0 top-0 h-0 w-0 border-t-2 border-l-2 border-tertiary transition-all duration-300 group-hover:h-full group-hover:w-full rounded-tl-lg"></span>
-
-                  {/* Sudut Kanan Bawah */}
-                  <span className="absolute right-0 bottom-0 h-0 w-0 border-b-2 border-r-2 border-tertiary transition-all duration-300 group-hover:h-full group-hover:w-full rounded-br-lg"></span>
+                  Donwload CV
                 </a>
               </AnimasiKiri>
             </div>
-            <AnimasiKanan className="w-1/2 flex justify-center items-center">
+            <AnimasiKanan className="w-xs md:w-1/2 flex justify-center relative md:mb-0 bottom-15">
               {/* Langkah 2: Gunakan gambar yang sudah di-import */}
-              <div className="w-full max-w-md bg-[var(--color-quaternary)] p-2 shadow-2xl rounded-lg">
+              <div className="w-full max-w-md bg-[var(--color-quaternary)] p-2 shadow-2xl rounded-lg ">
                 <PixelatedImage
                   src={coverImage1}
                   alt="cover"
@@ -128,21 +114,21 @@ function App() {
         </section>
 
         {/* Section Tentang */}
-        <section id="tentang" className="relative z-2">
-          <div className="flex flex-row items-center justify-center h-screen text-gray-900 bg-white space-x-20">
+        <section id="tentang" className="relative">
+          <div className="flex md:flex-row flex-col items-center justify-center h-screen text-gray-900 bg-white md:space-x-20 mt-40 md:mt-0">
             <AnimasiScroll>
               <img
                 src={coverImage2}
                 alt="cover2"
-                className="h-240 w-full object-cover rounded-lg"
+                className="md:h-240 w-full object-cover rounded-lg"
               />
             </AnimasiScroll>
             <AnimasiScroll>
               <div className="flex flex-col items-center justify-center text-center">
-                <h2 className="text-4xl mb-4">
+                <h2 className="md:text-4xl mb-4 text-2xl md:mt-0 mt-5">
                   Tentang <span className="font-bold"> Saya </span>{" "}
                 </h2>
-                <p className="text-lg mb-4 max-w-2xl text-justify">
+                <p className="md:text-lg md:p-0 px-5 mb-4 max-w-2xl text-justify">
                   Saya adalah seorang pengembang web dan mobile yang antusias
                   dan memiliki semangat tinggi dalam menciptakan solusi digital.
                   Dengan pengalaman dalam membangun aplikasi yang responsif dan
@@ -156,10 +142,10 @@ function App() {
                   meningkatkan keterampilan serta memberikan hasil kerja yang
                   lebih baik ke depannya.
                 </p>
-                <h2 className="text-4xl mb-4">
+                <h2 className="md:text-4xl text-2xl mb-4">
                   Kemampuan <span className="font-bold">Saya</span>
                 </h2>
-                <div className="grid grid-col grid-cols-3 justify-center">
+                <div className="grid grid-col grid-cols-3 justify-center md:mb-0 mb-30">
                   <SkillIcon src={ReactLogo} alt="React" />
                   <SkillIcon src={LaravelLogo} alt="Laravel" />
                   <SkillIcon src={FlutterLogo} alt="Flutter" />
@@ -173,15 +159,15 @@ function App() {
         </section>
 
         {/* Section Proyek */}
-        <section id="proyek" className="relative bg-white py-20">
-          <div className="container mx-auto px-4">
+        <section id="proyek" className="bg-white pt-50 md:pt-20">
+          <div className="container mx-auto md:px-4">
             <AnimasiScroll>
               <div className="flex flex-col text-center items-center justify-center">
-                <h2 className="text-4xl font-semibold mb-4 mt-xl mt-25">
+                <h2 className="md:text-4xl text-2xl font-semibold mb-4">
                   Proyek
                 </h2>
                 <hr className="w-1/2 mb-4 border-t-4 border-[var(--color-tertinary)]" />
-                <div className="w-5xl" id="project-grid-container">
+                <div className="md:w-5xl" id="project-grid-container">
                   <ProjectGrid />
                 </div>
               </div>
@@ -193,23 +179,25 @@ function App() {
         <section id="kontak" className="bg-[var(--color-primary)]">
           <AnimasiScroll>
             <div className="flex flex-col items-center justify-start text-white">
-              <h2 className="text-4xl font-semibold mb-4 mt-15 text-[var(--color-quaternary)] px-5">
+              <h2 className="md:text-4xl text-2xl font-semibold mb-4 mt-15 text-[var(--color-quaternary)] px-5">
                 Kontak
               </h2>
-              <p>Makasih udah mampir, semoga harimu seru terus.</p>
+              <p className="text-sm pb-4">
+                Makasih udah mampir, semoga harimu seru terus.
+              </p>
               <div className="flex items-center space-x-4 mb-15">
                 {/* Langkah 3: Ubah event handler 'onclick' menjadi 'onClick' */}
                 <a href="https://www.instagram.com/chandra_saputra02/">
-                  <img src={instagramLogo} alt="" className="w-10" />
+                  <img src={instagramLogo} alt="" className="md:w-10 w-8" />
                 </a>
                 <a href="https://github.com/Twizzy803">
-                  <img src={githubLogo} alt="" className="w-13" />
+                  <img src={githubLogo} alt="" className="md:w-13 w-11" />
                 </a>
                 <a href="https://www.linkedin.com/in/agilgilangcs/">
-                  <img src={linkedinLogo} alt="" className="w-10" />
+                  <img src={linkedinLogo} alt="" className="md:w-10 w-8" />
                 </a>
                 <a href="mailto:agilgilangcs@gmail.com?subject=Pertanyaan%20dari%20Website%20Portofolio">
-                  <img src={EmailLogo} alt="" className="w-12" />
+                  <img src={EmailLogo} alt="" className="md:w-12 w-10" />
                 </a>
               </div>
             </div>
@@ -220,7 +208,7 @@ function App() {
         <section className="bg-[var(--color-secondary)] py-2">
           <footer>
             <div className="text-center text-white">
-              <p className="text-md">
+              <p className="md:text-md text-sm">
                 © 2025{" "}
                 <span className="font-bold text-[var(--color-tertinary)]">
                   Twizzy

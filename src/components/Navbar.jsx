@@ -1,44 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { motion, useScroll, useMotionValueEvent } from "motion/react";
+import { motion, useScroll, useMotionValueEvent } from "motion/react"; // Diperbaiki importnya
+import { useIsMobile } from "../hooks/useMobile"; // 1. Impor hook baru kita
 
 export default function Navbar() {
   const { scrollY } = useScroll();
   const [isExpanded, setIsExpanded] = useState(false);
+  const isMobile = useIsMobile(); // 2. Gunakan hook untuk mendapatkan status mobile
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsExpanded(latest > 100);
   });
 
-  // --- MULAI: LOGIKA UNTUK ACTIVE LINK ---
+  // Logika IntersectionObserver tetap sama...
   useEffect(() => {
-    // 1. Jika navbar tidak expanded, jangan lakukan apa-apa.
-    if (!isExpanded) {
-      return;
-    }
-
-    // 2. Logika IntersectionObserver sekarang hanya akan berjalan
-    //    KETIKA isExpanded menjadi true.
+    if (!isExpanded) return;
+    // ... (seluruh kode IntersectionObserver Anda di sini)
     const sections = ["beranda", "tentang", "proyek", "kontak"];
     const navLinks = sections.map((id) => document.getElementById(`nav-${id}`));
-
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.5, // Aktif saat 50% section terlihat
-    };
-
+    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.5 };
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Hapus class 'nav-active' dari semua link
           navLinks.forEach((link) => link?.classList.remove("nav-active"));
-          // Tambahkan class ke link yang sesuai
           const activeLink = document.getElementById(`nav-${entry.target.id}`);
           activeLink?.classList.add("nav-active");
         }
       });
     };
-
     const observer = new IntersectionObserver(
       observerCallback,
       observerOptions
@@ -47,27 +35,26 @@ export default function Navbar() {
       const sectionEl = document.getElementById(id);
       if (sectionEl) observer.observe(sectionEl);
     });
-
-    // Fungsi cleanup akan berjalan saat isExpanded berubah menjadi false
     return () => {
       sections.forEach((id) => {
         const sectionEl = document.getElementById(id);
         if (sectionEl) observer.unobserve(sectionEl);
       });
     };
-  }, [isExpanded]); // 3. 'isExpanded' sebagai dependensi!
-  // --- SELESAI: LOGIKA UNTUK ACTIVE LINK ---
+  }, [isExpanded]);
 
-  // Varian animasi (tidak ada yang berubah di sini)
+  // --- MULAI: PERUBAHAN PENTING ADA DI SINI ---
+  // 3. Buat varian animasi menjadi dinamis
   const navbarVariants = {
     initial: {
-      width: "80px",
-      height: "80px",
+      width: isMobile ? "64px" : "80px", // Lebih kecil di mobile
+      height: isMobile ? "64px" : "80px",
       borderRadius: "50%",
       opacity: 0.8,
     },
     expanded: {
-      width: "600px",
+      // Gunakan nilai yang berbeda untuk mobile dan desktop
+      width: isMobile ? "90vw" : "600px", // '90vw' berarti 90% dari lebar layar
       height: "64px",
       borderRadius: "9999px",
       opacity: 1,
@@ -80,10 +67,12 @@ export default function Navbar() {
       },
     },
   };
+  // Varian untuk item link tetap sama
   const navItemVariants = {
     initial: { opacity: 0, y: -20 },
     expanded: { opacity: 1, y: 0 },
   };
+  // --- SELESAI ---
 
   return (
     <div className="fixed top-5 left-1/2 -translate-x-1/2 z-50">
@@ -94,8 +83,8 @@ export default function Navbar() {
         animate={isExpanded ? "expanded" : "initial"}
       >
         {isExpanded && (
-          <ul className="flex flex-row text-white text-lg space-x-8 font-semibold font-rubik">
-            {/* 4. PASTIKAN SETIAP LINK MEMILIKI ID YANG BENAR */}
+          // 4. Gunakan class responsif untuk styling link
+          <ul className="flex flex-row text-white text-base md:text-lg space-x-4 md:space-x-8 font-semibold font-rubik">
             <motion.li variants={navItemVariants}>
               <a href="#beranda" id="nav-beranda" className="nav-link">
                 Beranda
