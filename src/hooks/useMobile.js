@@ -1,15 +1,29 @@
+// hooks/useIsMobile.js
+
 import { useState, useEffect } from "react";
 
-// Hook ini akan mengembalikan 'true' jika lebar layar di bawah 768px
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  // Kita akan mengecek dua hal: apakah pointer-nya kasar (sentuhan) ATAU layarnya kecil.
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Media query untuk mendeteksi perangkat sentuh (pointer kasar)
+    const hasCoarsePointer = window.matchMedia("(pointer: coarse)");
+    // Media query untuk mendeteksi layar kecil
+    const isSmallScreen = window.matchMedia("(max-width: 768px)");
+
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      // Sebuah perangkat dianggap "mobile" jika itu adalah perangkat sentuh ATAU layarnya sangat kecil.
+      setIsMobile(hasCoarsePointer.matches || isSmallScreen.matches);
     };
 
+    // Panggil sekali saat pertama kali dijalankan
+    handleResize();
+
+    // Tambahkan listener untuk resize
     window.addEventListener("resize", handleResize);
+    
+    // Cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
